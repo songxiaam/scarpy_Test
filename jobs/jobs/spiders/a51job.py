@@ -4,7 +4,8 @@ import re
 
 class A51jobSpider(scrapy.Spider):
     name = '51job'
-    allowed_domains = ['www.51job.com', 'search.51job.com', 'jobs.51job.com']
+    # allowed_domains = ['www.51job.com', 'search.51job.com', 'jobs.51job.com']
+    allowed_domains = ['51job.com']
     # start_urls = ['https://www.51job.com/']
     list_kws = ['iOS', 'Android', 'Python', 'Java']
     urls = []
@@ -15,7 +16,7 @@ class A51jobSpider(scrapy.Spider):
     # start_urls = ['https://search.51job.com/list/020000,000000,0000,00,9,99,数据分析师,2,1.html?lang=c&stype=1&postchannel=0000&workyear=99&cotype=99&degreefrom=99&jobterm=99&companysize=99&lonlat=0%2C0&radius=-1&ord_field=0&confirmdate=9&fromType=&dibiaoid=0&address=&line=&specialarea=00&from=&welfare=']
     start_urls = urls
 
-
+    # 会默认调用
     def parse(self, response):
         selector = scrapy.Selector(response)
         result_list = selector.xpath('//*[@id="resultList"]/div[@class="el"]')
