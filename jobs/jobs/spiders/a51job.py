@@ -7,7 +7,8 @@ class A51jobSpider(scrapy.Spider):
     # allowed_domains = ['www.51job.com', 'search.51job.com', 'jobs.51job.com']
     allowed_domains = ['51job.com']
     # start_urls = ['https://www.51job.com/']
-    list_kws = ['iOS', 'Android', 'Python', 'Java']
+    # list_kws = ['iOS', 'Android', 'Python', 'Java']
+    list_kws = ['iOS']
     urls = []
     for kw in list_kws:
         url = 'https://search.51job.com/list/020000,000000,0000,00,9,99,%s,2,1.html?lang=c&stype=1&postchannel=0000&workyear=99&cotype=99&degreefrom=99&jobterm=99&companysize=99&lonlat=0%%2C0&radius=-1&ord_field=0&confirmdate=9&fromType=&dibiaoid=0&address=&line=&specialarea=00&from=&welfare=' % kw
@@ -56,14 +57,20 @@ class A51jobSpider(scrapy.Spider):
         requirement = item_cn.xpath('p[2]/@title').extract()[0].replace(u'\xa0', u' ').replace(' ', '').split('|') # &nbsp解码
 
 
-        item_detail = selector.xpath('/html/body/div[@class="tCompanyPage"]/div[@class="tCompany_center clearfix"]/div[3]')
+        item_detail = selector.xpath('/html/body/div[@class="tCompanyPage"]/div[@class="tCompany_center clearfix"]/div[3]/div')
         # 6.职位详情
         # job_details = item_detail.xpath('div[1]/div[1]/p/text()').extract()
-        job_details = item_detail.xpath('string(div[1]/div[1])').extract()[0] #字符串数据顺序错乱
-        job_detail = job_details.replace(' ', '').replace('\n', '')
-        print ('------------')
-        print(job_detail)
-        print ('++++++++++++')
+        # job_details = item_detail.xpath('string(div[1]/div[1])').extract()[0] #字符串数据顺序错乱
+        # job_detail = job_details.replace(' ', '').replace('\n', '')
+
+        # job_details = item_detail.xpath('div[1]/div/')
+        for item in item_detail:
+            title_h2 = item.xpath('h2/text()')
+            detail_p = item.xpath('string(div)')
+
+            print ('------------')
+            print(title_h2)
+            print ('++++++++++++')
         # 7.上班地址
         job_address = item_detail.xpath('div[2]/div/p/text()').extract()
         # 8.地图位置
