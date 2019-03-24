@@ -58,7 +58,12 @@ class A51jobSpider(scrapy.Spider):
 
         item_detail = selector.xpath('/html/body/div[@class="tCompanyPage"]/div[@class="tCompany_center clearfix"]/div[3]')
         # 6.职位详情
-        job_details = item_detail.xpath('div[1]/div[1]/p/text()').extract()
+        # job_details = item_detail.xpath('div[1]/div[1]/p/text()').extract()
+        job_details = item_detail.xpath('string(div[1]/div[1])').extract()[0] #字符串数据顺序错乱
+        job_detail = job_details.replace(' ', '').replace('\n', '')
+        print ('------------')
+        print(job_detail)
+        print ('++++++++++++')
         # 7.上班地址
         job_address = item_detail.xpath('div[2]/div/p/text()').extract()
         # 8.地图位置
@@ -81,7 +86,9 @@ class A51jobSpider(scrapy.Spider):
         company_people = item_company.xpath('div[2]/p[2]/text()').extract()[0]
         # 13.所处行业
         company_industry = item_company.xpath('div[2]/p[3]/a/text()').extract()
-        print(job_name+"--"+company_name+','.join(welfares)+'--'+monthly_pay+'--'+','.join(requirement)+'\n'+job_address[1]+job_map+'\n'+' '.join(company_industry)+company_link)
+        # print(job_name+"--"+company_name+','.join(welfares)+'--'+monthly_pay+'--'+','.join(requirement)+'\n'+job_address[1]+job_map+'\n'+' '.join(company_industry)+company_link)
+
+
 
     def sub_string(self, template):
         rule = r"'(.*?)'"

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e3c555a-01d4-4f23-bacc-ae1fa155c89f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/jobs/jobs/spiders/a51job.py" beforeDir="false" afterPath="$PROJECT_DIR$/jobs/jobs/spiders/a51job.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,8 +16,8 @@
       <file leaf-file-name="a51job.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/jobs/jobs/spiders/a51job.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+            <state relative-caret-position="239">
+              <caret line="61" column="88" selection-start-line="61" selection-start-column="88" selection-end-line="61" selection-end-column="88" />
               <folding>
                 <element signature="e#24#37#0" expanded="true" />
               </folding>
@@ -126,6 +125,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="39" y="23" width="1241" height="777" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -133,7 +133,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32794118" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.48235294" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18932444" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
@@ -191,8 +191,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/jobs/jobs/spiders/a51job.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+        <state relative-caret-position="239">
+          <caret line="61" column="88" selection-start-line="61" selection-start-column="88" selection-end-line="61" selection-end-column="88" />
           <folding>
             <element signature="e#24#37#0" expanded="true" />
           </folding>
