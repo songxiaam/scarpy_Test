@@ -53,9 +53,34 @@ class A51jobSpider(scrapy.Spider):
         welfares = item_cn.xpath('div/div/span/text()').extract()
         # 4.月薪
         monthly_pay = item_cn.xpath('strong/text()').extract()[0]
+
+        #  x-y 元/天 千/月 万/月 万以上/月 万/年 万以上/年
+        tmp_dict = {'元/天': 30, '千/月': 1000, '万/月': 10000, '万以上/月': 10000, '万/年': 1/12, '万以上/年': 1/12}
+        money_min = 0
+        money_max = 0
+        for key, value in tmp_dict.items():
+            if monthly_pay.strip() == '':
+                money_min = money_max = 0
+                break
+
+            elif key in monthly_pay:
+                temp_money = monthly_pay.strip(key)
+                temp_money_list = temp_money.split('-')
+                if len(temp_money_list) == 2:
+                    money_min = float(temp_money_list[0])*value
+                    money_max = float(temp_money_list[1])*value
+                    print(temp_money_list)
+                    print('------%f~%f' %(money_min, money_max))
+                    break
+                else:
+                    money_min = money_max = float(temp_money)*value
+                    break
+
+        # print(money_min)
+        # print('------------- %d ~ %d' % (money_min, money_max))
+        # print (monthly_pay)
         # 5.职位要求
         requirement = item_cn.xpath('p[2]/@title').extract()[0].replace(u'\xa0', u' ').replace(' ', '').split('|') # &nbsp解码
-
 
         item_detail = selector.xpath('/html/body/div[@class="tCompanyPage"]/div[@class="tCompany_center clearfix"]/div[3]')
         # 6.职位详情
@@ -101,7 +126,7 @@ class A51jobSpider(scrapy.Spider):
         company_industry = item_company.xpath('div[2]/p[3]/a/text()').extract()
         # 14.公司信息
         company_info = item_detail.xpath('string(div[3]/div)').extract()[0]
-        print(company_info)
+        # print(company_info)
         # print(job_name+"--"+company_name+','.join(welfares)+'--'+monthly_pay+'--'+','.join(requirement)+'\n'+job_address[1]+job_map+'\n'+' '.join(company_industry)+company_link)
 
 
