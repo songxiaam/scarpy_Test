@@ -64,7 +64,7 @@ class A51jobSpider(scrapy.Spider):
         # job_detail = job_details.replace(' ', '').replace('\n', '')
 
         # job_details = item_detail.xpath('div[1]/div/')
-        for item in item_detail:
+        for item in item_details:
             title_h2 = item.xpath('h2/text()')
             detail_p = item.xpath('string(div)')
 
