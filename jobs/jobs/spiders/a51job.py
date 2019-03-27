@@ -8,7 +8,7 @@ class A51jobSpider(scrapy.Spider):
     allowed_domains = ['51job.com']
     # start_urls = ['https://www.51job.com/']
     # list_kws = ['iOS', 'Android', 'Python', 'Java']
-    list_kws = ['数据分析师']
+    list_kws = ['实习生']
     urls = []
     for kw in list_kws:
         url = 'https://search.51job.com/list/020000,000000,0000,00,9,99,%s,2,1.html?lang=c&stype=1&postchannel=0000&workyear=99&cotype=99&degreefrom=99&jobterm=99&companysize=99&lonlat=0%%2C0&radius=-1&ord_field=0&confirmdate=9&fromType=&dibiaoid=0&address=&line=&specialarea=00&from=&welfare=' % kw
@@ -55,7 +55,7 @@ class A51jobSpider(scrapy.Spider):
         monthly_pay = item_cn.xpath('strong/text()').extract()[0]
 
         #  x-y 元/天 千/月 万/月 万以上/月 万/年 万以上/年
-        tmp_dict = {'元/天': 30, '千/月': 1000, '万/月': 10000, '万以上/月': 10000, '万/年': 1/12, '万以上/年': 1/12}
+        tmp_dict = {'元/天': 30, '千/月': 1000, '千以上/月': 1000, '千以下/月':1000, '万/月': 10000, '万以上/月': 10000, '万/年': 1/12, '万以上/年': 1/12}
         money_min = 0
         money_max = 0
         for key, value in tmp_dict.items():
@@ -69,11 +69,12 @@ class A51jobSpider(scrapy.Spider):
                 if len(temp_money_list) == 2:
                     money_min = float(temp_money_list[0])*value
                     money_max = float(temp_money_list[1])*value
-                    print(temp_money_list)
-                    print('------%f~%f' %(money_min, money_max))
+                    # print(temp_money_list)
+                    # print('------%f~%f' %(money_min, money_max))
                     break
                 else:
                     money_min = money_max = float(temp_money)*value
+                    # print('------%f~%f' %(money_min, money_max))
                     break
 
         # print(money_min)
@@ -81,6 +82,37 @@ class A51jobSpider(scrapy.Spider):
         # print (monthly_pay)
         # 5.职位要求
         requirement = item_cn.xpath('p[2]/@title').extract()[0].replace(u'\xa0', u' ').replace(' ', '').split('|') # &nbsp解码
+
+        # 工作地
+        addrStr = requirement[0]
+        addrList = addrStr.split('-')
+        city = addrList[0]
+        area = ''
+        if len(addrList) == 2:
+            area = addrList[1]
+
+        # 经验
+        experience = '无工作经验'
+        # 学历
+        educationArr = ['初中及以下', '高中/中技/中专', '大专', '本科', '硕士', '博士']
+        education = '所有'
+        # 人数
+        count = 0
+        for item in requirement:
+            if '年经验' in item:
+                experience = item[:-3]
+            elif item in education:
+                education = item
+            elif re.match(r'招.*?人', item):
+                count_str = item[1:-1]
+                if count_str == '若干':
+                    count = 0
+                else:
+                    count = int(count_str)
+
+        print('工作城市%s, 区:%s, 经验:%s, 学历:%s, 招聘%s人' % (city, area, experience, education, ('若干' if count == 0 else str(count))))
+
+
 
         item_detail = selector.xpath('/html/body/div[@class="tCompanyPage"]/div[@class="tCompany_center clearfix"]/div[3]')
         # 6.职位详情
