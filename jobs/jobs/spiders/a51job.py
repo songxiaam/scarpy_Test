@@ -2,13 +2,16 @@
 import scrapy
 import re
 
+from idna import unicode
+
+
 class A51jobSpider(scrapy.Spider):
     name = '51job'
     # allowed_domains = ['www.51job.com', 'search.51job.com', 'jobs.51job.com']
     allowed_domains = ['51job.com']
     # start_urls = ['https://www.51job.com/']
     # list_kws = ['iOS', 'Android', 'Python', 'Java']
-    list_kws = ['实习生']
+    list_kws = ['iOS']
     urls = []
     for kw in list_kws:
         url = 'https://search.51job.com/list/020000,000000,0000,00,9,99,%s,2,1.html?lang=c&stype=1&postchannel=0000&workyear=99&cotype=99&degreefrom=99&jobterm=99&companysize=99&lonlat=0%%2C0&radius=-1&ord_field=0&confirmdate=9&fromType=&dibiaoid=0&address=&line=&specialarea=00&from=&welfare=' % kw
@@ -55,7 +58,7 @@ class A51jobSpider(scrapy.Spider):
         monthly_pay = item_cn.xpath('strong/text()').extract()[0]
 
         #  x-y 元/天 千/月 万/月 万以上/月 万/年 万以上/年
-        tmp_dict = {'元/天': 30, '千/月': 1000, '千以上/月': 1000, '千以下/月':1000, '万/月': 10000, '万以上/月': 10000, '万/年': 1/12, '万以上/年': 1/12}
+        tmp_dict = {'元/天': 30, '千/月': 1000, '千以上/月': 1000, '千以下/月':  1000, '万/月': 10000, '万以上/月': 10000, '万/年': 1/12, '万以上/年': 1/12}
         money_min = 0
         money_max = 0
         for key, value in tmp_dict.items():
@@ -69,17 +72,12 @@ class A51jobSpider(scrapy.Spider):
                 if len(temp_money_list) == 2:
                     money_min = float(temp_money_list[0])*value
                     money_max = float(temp_money_list[1])*value
-                    # print(temp_money_list)
-                    # print('------%f~%f' %(money_min, money_max))
                     break
                 else:
                     money_min = money_max = float(temp_money)*value
-                    # print('------%f~%f' %(money_min, money_max))
                     break
 
-        # print(money_min)
         # print('------------- %d ~ %d' % (money_min, money_max))
-        # print (monthly_pay)
         # 5.职位要求
         requirement = item_cn.xpath('p[2]/@title').extract()[0].replace(u'\xa0', u' ').replace(' ', '').split('|') # &nbsp解码
 
@@ -110,7 +108,7 @@ class A51jobSpider(scrapy.Spider):
                 else:
                     count = int(count_str)
 
-        print('工作城市%s, 区:%s, 经验:%s, 学历:%s, 招聘%s人' % (city, area, experience, education, ('若干' if count == 0 else str(count))))
+        # print('工作城市%s, 区:%s, 经验:%s, 学历:%s, 招聘%s人' % (city, area, experience, education, ('若干' if count == 0 else str(count))))
 
 
 
@@ -120,6 +118,12 @@ class A51jobSpider(scrapy.Spider):
         job_details = item_detail.xpath('string(div[1]/div[1])').extract()[0] #terminal打印不完整
         # print('------------')
         # print(job_details)
+
+        com = re.compile(u'(岗位职责|工作职责)[:：]?(.*?)(任职资格|任职要求)[:：]?(.*?)(职能类别)[:：]?(.*?)(关键字)[:：]?')
+        re_list = re.findall(com, unicode(job_details))
+        if re_list:
+            print(a)
+
         # print('++++++++++++')
         # job_detail = job_details.replace(' ', '').replace('\n', '')
 
