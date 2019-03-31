@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 import re
+from jobs.items import JobsItem
 
 from idna import unicode
 
@@ -44,19 +45,25 @@ class A51jobSpider(scrapy.Spider):
     #         info_href = div_item.xpath('p/span/a/@href').extract()
     #         print(info_href[0])
     def parse_info(self, response):
+
+        # 实例化
+        job_item = JobsItem()
+
+
         selector = scrapy.Selector(response)
 
         item_cn = selector.xpath('/html/body/div[@class="tCompanyPage"]/div[@class="tCompany_center clearfix"]/div[@class="tHeader tHjob"]/div/div[@class="cn"]')
         # 1.职位名称
         # job_name = selector.xpath('/html/body/div[@class="tCompanyPage"]/div[@class="tCompany_center clearfix"]/div[@class="tHeader tHjob"]/div/div[@class="cn"]/h1/@title').extract()
         job_name = item_cn.xpath('h1/@title').extract()[0]
+        job_item.job_name = job_name
         # 2.公司名称
         company_name = item_cn.xpath('p[@class="cname"]/a[1]/@title').extract()[0]
+        job_item.company_name = company_name
         # 3.福利
         welfares = item_cn.xpath('div/div/span/text()').extract()
         # 4.月薪
         monthly_pay = item_cn.xpath('strong/text()').extract()[0]
-
         #  x-y 元/天 千/月 万/月 万以上/月 万/年 万以上/年
         tmp_dict = {'元/天': 30, '千/月': 1000, '千以上/月': 1000, '千以下/月':  1000, '万/月': 10000, '万以上/月': 10000, '万/年': 1/12, '万以上/年': 1/12}
         money_min = 0
@@ -76,7 +83,8 @@ class A51jobSpider(scrapy.Spider):
                 else:
                     money_min = money_max = float(temp_money)*value
                     break
-
+        job_item.monthly_pay_min = money_min
+        job_item.monthly_pay_max = money_max
         # print('------------- %d ~ %d' % (money_min, money_max))
         # 5.职位要求
         requirement = item_cn.xpath('p[2]/@title').extract()[0].replace(u'\xa0', u' ').replace(' ', '').split('|') # &nbsp解码
@@ -88,7 +96,7 @@ class A51jobSpider(scrapy.Spider):
         area = ''
         if len(addrList) == 2:
             area = addrList[1]
-
+        job_item.area = area
         # 经验
         experience = '无工作经验'
         # 学历
@@ -110,7 +118,8 @@ class A51jobSpider(scrapy.Spider):
 
         # print('工作城市%s, 区:%s, 经验:%s, 学历:%s, 招聘%s人' % (city, area, experience, education, ('若干' if count == 0 else str(count))))
 
-
+        job_item.education = education
+        job_item.experience = experience
 
         item_detail = selector.xpath('/html/body/div[@class="tCompanyPage"]/div[@class="tCompany_center clearfix"]/div[3]')
         # 6.职位详情
@@ -122,7 +131,7 @@ class A51jobSpider(scrapy.Spider):
         com = re.compile(u'(岗位职责|工作职责)[:：]?(.*?)(任职资格|任职要求)[:：]?(.*?)(职能类别)[:：]?(.*?)(关键字)[:：]?')
         re_list = re.findall(com, unicode(job_details))
         if re_list:
-            print(a)
+            print(re_list[0][0].strip())
 
         # print('++++++++++++')
         # job_detail = job_details.replace(' ', '').replace('\n', '')
@@ -141,6 +150,7 @@ class A51jobSpider(scrapy.Spider):
 
         # 7.上班地址
         job_address = item_detail.xpath('div[2]/div/p/text()').extract()
+        job_item.address = job_address
         # 8.地图位置
         job_positions = self.sub_string(item_detail.xpath('div[2]/div/a/@onclick').extract()[0])
         job_map = ''
@@ -154,6 +164,7 @@ class A51jobSpider(scrapy.Spider):
         company_links = item_company.xpath('div[1]/a/@href').extract()
         if company_links:
             company_link = company_links[0]
+        job_item.company_link = company_link
         # 11.公司性质
         company_nature = item_company.xpath('div[2]/p[1]/text()').extract()[0]
         # 12.员工人数
@@ -162,10 +173,12 @@ class A51jobSpider(scrapy.Spider):
         company_industry = item_company.xpath('div[2]/p[3]/a/text()').extract()
         # 14.公司信息
         company_info = item_detail.xpath('string(div[3]/div)').extract()[0]
+        job_item.company_info = company_info
         # print(company_info)
         # print(job_name+"--"+company_name+','.join(welfares)+'--'+monthly_pay+'--'+','.join(requirement)+'\n'+job_address[1]+job_map+'\n'+' '.join(company_industry)+company_link)
+        # yield job_item
 
-
+        return job_item # 将item提交给管道
 
     def sub_string(self, template):
         rule = r"'(.*?)'"
