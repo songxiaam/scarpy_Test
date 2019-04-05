@@ -65,9 +65,19 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-# ITEM_PIPELINES = {
-#    'jobs.pipelines.JobsPipeline': 300,
-# }
+# 管道模块路径和权重,权重越低越提前调用
+ITEM_PIPELINES = {
+   'jobs.pipelines.JobsPipeline': 300,
+
+    # 1数据去重
+    # DropItem 返回异常,为了抛弃Item对象
+    # 使用set集合存储,职位名+公司,判读是否在set中出现过,如果没有出现过,则在set中存储这个组合,并且提交item给后面的管道,
+    # 如果出现过,执行riase DropItem, 抛出异常,丢弃item
+    # 2数据清洗
+    # 3发布时间字符串转日期
+    # 4数据存储
+
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
