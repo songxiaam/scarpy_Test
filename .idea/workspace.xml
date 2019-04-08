@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2e3c555a-01d4-4f23-bacc-ae1fa155c89f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/jobs/jobs/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/jobs/jobs/pipelines.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobs/jobs/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/jobs/jobs/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -49,8 +48,12 @@
           <file leaf-file-name="pipelines.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/jobs/jobs/pipelines.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="588">
-                  <caret line="53" column="6" selection-start-line="53" selection-start-column="6" selection-end-line="53" selection-end-column="6" />
+                <state relative-caret-position="363">
+                  <caret line="51" column="43" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="43" />
+                  <folding>
+                    <element signature="e#194#232#0" expanded="true" />
+                    <marker date="1554737809063" expanded="true" signature="1229:1234" ph="..." />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -162,7 +165,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -363,8 +366,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/jobs/jobs/pipelines.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="53" column="6" selection-start-line="53" selection-start-column="6" selection-end-line="53" selection-end-column="6" />
+        <state relative-caret-position="363">
+          <caret line="51" column="43" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="43" />
+          <folding>
+            <element signature="e#194#232#0" expanded="true" />
+            <marker date="1554737809063" expanded="true" signature="1229:1234" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

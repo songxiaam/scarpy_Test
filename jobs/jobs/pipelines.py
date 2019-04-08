@@ -6,6 +6,7 @@
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 from scrapy.exceptions import DropItem
+import jieba
 
 class JobsPipeline(object):
     # item容器
@@ -48,9 +49,16 @@ class DropItemPipeline(object):
 
 
 #数据清洗
-class DataClearning(self, item):
+class DataClearnPipeline(self, item, spider):
+    def process_item(self, item, spider):
     # 对于字符串,去除两端空格
-    # 对数据进一步分割处理(写在爬虫中的操作写到这里)
-    # 判断异常值
+    for key in item:
+        item[key] = item[key].strip()
+    # 对数据进一步分割处理
+    # spider中的操作写到这里
+    # 文本分词,提取关键词
+    # jieba中文分词模块,引用jieba,需要安装(pip install jieba)
+    # 判断异常值或空值数据,进行数据填充
+
 
     pass
