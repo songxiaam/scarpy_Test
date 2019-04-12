@@ -127,7 +127,7 @@ class A51jobSpider(scrapy.Spider):
         job_details = item_detail.xpath('string(div[1]/div[1])').extract()[0] #terminal打印不完整
         # print('------------')
         # print(job_details)
-
+        job_item.job_detail = job_details
         com = re.compile(u'(岗位职责|工作职责)[:：]?(.*?)(任职资格|任职要求)[:：]?(.*?)(职能类别)[:：]?(.*?)(关键字)[:：]?')
         re_list = re.findall(com, unicode(job_details))
         if re_list:

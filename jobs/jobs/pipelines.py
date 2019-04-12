@@ -6,8 +6,8 @@
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 from scrapy.exceptions import DropItem
-import jieba
-
+import jieba.analyse as jal
+import time
 class JobsPipeline(object):
     # item容器
     # 生成对应item的spider爬虫
@@ -49,16 +49,29 @@ class DropItemPipeline(object):
 
 
 #数据清洗
-class DataClearnPipeline(self, item, spider):
+class DataClearPipeline(object):
     def process_item(self, item, spider):
-    # 对于字符串,去除两端空格
-    for key in item:
-        item[key] = item[key].strip()
-    # 对数据进一步分割处理
-    # spider中的操作写到这里
-    # 文本分词,提取关键词
-    # jieba中文分词模块,引用jieba,需要安装(pip install jieba)
-    # 判断异常值或空值数据,进行数据填充
+        # 对于字符串,去除两端空格
+        for key in item:
+            item[key] = item[key].strip()
+        # 对数据进一步分割处理
+        # spider中的操作写到这里
+        # 文本分词,提取关键词
+        # jieba中文分词模块,引用jieba,需要安装(pip install jieba)
+        # 对于岗位职责和任职要求做关键字提取
+        job_details_fenci = jal.extract_tags(item['job_detail'], topK=10)
+        item['job_detail_keyword'] = '/'.join(job_details_fenci)
+        print(job_details_fenci)
+        # 判断异常值或空值数据,进行数据填充
+        # 1.判断薪资是否为空
+        if item['monthly_pay_min'] == '':
+            item['monthly_pay_min'] = 0
+        if item['monthly_pay_max'] == '':
+            item['monthly_pay_max'] = 0
+        # ... 其他为空判断
+
+class DataTimePipeline(object):
+    def process_item(self, item, spider):
+        time.time()
 
 
-    pass

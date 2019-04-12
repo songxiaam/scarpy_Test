@@ -26,6 +26,8 @@ class JobsItem(scrapy.Item):
     experience = scrapy.Field() #工作经验
     education = scrapy.Field()
     address = scrapy.Field()
-
+    job_detail = scrapy.Field()  #岗位职责任职要求等
+    job_detail_keyword = scrapy.Field() #岗位职责任职要求等的分词
+    publish_time = scrapy.Field()  #发布时间
     # test = scrapy.Field(TempItem)
 
