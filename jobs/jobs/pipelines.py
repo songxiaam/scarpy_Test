@@ -8,6 +8,8 @@
 from scrapy.exceptions import DropItem
 import jieba.analyse as jal
 import time
+import pymysql
+
 class JobsPipeline(object):
     # item容器
     # 生成对应item的spider爬虫
@@ -75,3 +77,26 @@ class DataTimePipeline(object):
         time.time()
 
 
+# 数据存储
+class MySqlPipeline(object):
+    # 建立初始化方法
+    def __init__(self, mysql_host, mysql_user, mysql_passwd, mysql_db):
+        self.MYSQL_HOST=mysql_host
+        self.MYSQL_USER=mysql_user
+        self.MYSQL_PASSWD=mysql_passwd
+        self.MYSQL_DB=mysql_db
+
+    # 从seting提取mysql配置信息
+    @classmethod
+    def from_crawler(cls, crawler):
+        return cls(
+            # crawler.settings.get()表示从settings文件查找配置信息
+            # mysql_host = crawler.settings.get('MYSQL_HOST', 'localhost')
+            # mysql_user = crawler.settings.get('MYSQL_USER', 'py')
+            # mysql_passwd = crawler.settings.get('MYSQL_PASSWD', '2654615Ww')
+            # mysql_db = crawler.settings.get('MYSQL_DB', 'job')
+            )
+
+    # 启动爬虫时连接数据库
+    def open_spider(self, spider):
+        # self.conn = pymysql.connect(host=)

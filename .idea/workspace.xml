@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e3c555a-01d4-4f23-bacc-ae1fa155c89f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/jobs/jobs/fenci.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobs/jobs/items.py" beforeDir="false" afterPath="$PROJECT_DIR$/jobs/jobs/items.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jobs/jobs/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/jobs/jobs/pipelines.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobs/jobs/spiders/a51job.py" beforeDir="false" afterPath="$PROJECT_DIR$/jobs/jobs/spiders/a51job.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobs/jobs/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/jobs/jobs/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,17 +31,17 @@
           <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/jobs/jobs/settings.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="274">
-                  <caret line="74" column="41" selection-start-line="74" selection-start-column="41" selection-end-line="74" selection-end-column="41" />
+                <state relative-caret-position="337">
+                  <caret line="107" column="13" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="13" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="pipelines.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="pipelines.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/jobs/jobs/pipelines.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="274">
-                  <caret line="74" column="8" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="19" />
+                <state relative-caret-position="199">
+                  <caret line="92" column="35" selection-start-line="92" selection-start-column="35" selection-end-line="92" selection-end-column="35" />
                   <folding>
                     <element signature="e#194#232#0" expanded="true" />
                   </folding>
@@ -52,7 +49,16 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="fenci.py" pinned="false" current-in-tab="true">
+          <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/pymysql/__init__.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1440">
+                  <caret line="107" selection-start-line="107" selection-end-line="107" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="fenci.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/jobs/jobs/fenci.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="319">
@@ -69,17 +75,27 @@
               <provider selected="true" editor-type-id="text-editor" />
             </entry>
           </file>
+          <file leaf-file-name="a51job.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/jobs/jobs/spiders/a51job.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-521">
+                  <caret line="129" column="41" selection-start-line="129" selection-start-column="41" selection-end-line="129" selection-end-column="41" />
+                  <folding>
+                    <element signature="e#24#37#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="middlewares.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/jobs/jobs/middlewares.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1002" />
-              </provider>
+              <provider selected="true" editor-type-id="text-editor" />
             </entry>
           </file>
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="items.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/jobs/jobs/items.py">
               <provider selected="true" editor-type-id="text-editor">
@@ -113,11 +129,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/jobs/jobs/settings.py" />
         <option value="$PROJECT_DIR$/jobs/jobs/spiders/a51job.py" />
         <option value="$PROJECT_DIR$/jobs/jobs/items.py" />
-        <option value="$PROJECT_DIR$/jobs/jobs/pipelines.py" />
         <option value="$PROJECT_DIR$/jobs/jobs/fenci.py" />
+        <option value="$PROJECT_DIR$/jobs/jobs/settings.py" />
+        <option value="$PROJECT_DIR$/jobs/jobs/pipelines.py" />
       </list>
     </option>
   </component>
@@ -130,17 +146,17 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
+    <option name="x" value="39" />
     <option name="y" value="23" />
-    <option name="width" value="1070" />
-    <option name="height" value="1027" />
+    <option name="width" value="1241" />
+    <option name="height" value="777" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -175,6 +191,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -236,41 +253,27 @@
     <frame x="39" y="23" width="1241" height="777" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info anchor="bottom" id="TODO" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="21" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Python Console" order="11" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32941177" />
-      <window_info anchor="bottom" id="Terminal" order="12" weight="0.0" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18932444" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="bottom" id="TODO" order="14" />
+      <window_info anchor="bottom" id="Event Log" order="18" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="17" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="16" />
+      <window_info anchor="bottom" id="Python Console" order="20" />
+      <window_info anchor="bottom" id="Run" order="4" />
+      <window_info anchor="bottom" id="Terminal" order="19" visible="true" weight="0.32941177" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1943286" />
+      <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="SciView" order="4" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="5" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19143577" />
-      <window_info anchor="right" id="SciView" order="4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="14" />
-      <window_info anchor="bottom" id="Version Control" order="16" />
-      <window_info anchor="bottom" id="Run" order="4" />
-      <window_info anchor="bottom" id="Database Changes" order="17" show_stripe_button="false" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="18" side_tool="true" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="19" visible="true" weight="0.0" />
-      <window_info anchor="bottom" id="Python Console" order="20" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,6 +283,46 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/jobs/jobs/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1110">
+          <caret line="74" column="41" selection-start-line="74" selection-start-column="41" selection-end-line="74" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jobs/jobs/pipelines.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="74" column="8" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="19" />
+          <folding>
+            <element signature="e#194#232#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jobs/scrapy.cfg">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jobs/jobs/middlewares.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jobs/jobs/fenci.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jobs/jobs/items.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="16" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/jobs/jobs/spiders/a51job.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="975">
@@ -373,29 +416,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/jobs/jobs/middlewares.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1002" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jobs/scrapy.cfg">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jobs/jobs/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="74" column="41" selection-start-line="74" selection-start-column="41" selection-end-line="74" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jobs/jobs/spiders/a51job.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="129" column="41" selection-start-line="129" selection-start-column="41" selection-end-line="129" selection-end-column="41" />
-          <folding>
-            <element signature="e#24#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/jobs/jobs/items.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -408,16 +429,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-603">
           <caret line="129" column="8" selection-start-line="129" selection-start-column="8" selection-end-line="129" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jobs/jobs/pipelines.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="74" column="8" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="19" />
-          <folding>
-            <element signature="e#194#232#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -434,6 +445,43 @@
           <caret line="39" column="20" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="20" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jobs/scrapy.cfg">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jobs/jobs/spiders/a51job.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-521">
+          <caret line="129" column="41" selection-start-line="129" selection-start-column="41" selection-end-line="129" selection-end-column="41" />
+          <folding>
+            <element signature="e#24#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jobs/jobs/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="107" column="13" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.6/site-packages/pymysql/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1440">
+          <caret line="107" selection-start-line="107" selection-end-line="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jobs/jobs/pipelines.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="92" column="35" selection-start-line="92" selection-start-column="35" selection-end-line="92" selection-end-column="35" />
+          <folding>
+            <element signature="e#194#232#0" expanded="true" />
           </folding>
         </state>
       </provider>
